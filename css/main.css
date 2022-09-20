@@ -1,0 +1,13 @@
+#container-div{
+    color:beige;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#myCanvas{
+    background-color: rgb(234, 214, 188);
+
+}
+
