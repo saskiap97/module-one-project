@@ -22,10 +22,13 @@ let leftPressed = false;
 
 //define bricks characters
 
-const brickHeight = 15
-const brickWidth = 60
-const brickPositionX = 10
-const brickPositionY = 10
+let brickHeight = 15
+let brickWidth = 80
+let brickPositionY = 10
+let brickPadding = 12
+let brickColumns = 7
+let brickLeftMargin = 20
+
 
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
@@ -63,22 +66,29 @@ function drawBall() {
     paint.closePath();
   }
 
+  
   function drawBricks() {
-    paint.beginPath();
-    paint.rect(brickPositionX, brickPositionY, brickWidth, brickHeight);
-    paint.fillStyle = "#000000";
-    paint.fill();
-    paint.closePath();
+    for(let i=0; i<brickColumns; i++){
+        let brickPositionX = (i*(brickWidth+brickPadding)) + brickLeftMargin
+        paint.beginPath();
+        paint.rect(brickPositionX, brickPositionY, brickWidth, brickHeight);
+        paint.fillStyle = "#000000";
+        paint.fill();
+        paint.closePath();
+        brickPositionX += brickPadding+brickWidth
+    }
   }
 
- 
+  
 
+ 
 
   function gamePlay() {
     paint.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle();
     drawBricks();
+
 
     if(rightPressed === true) {
         paddlePosition += 7;
