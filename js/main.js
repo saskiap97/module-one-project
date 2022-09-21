@@ -38,9 +38,15 @@ let bricks = [];
 for (let i = 0; i < brickColumns; i++){
     bricks[i] = [];
     for(j = 0; j<brickRows; j++){
-        bricks[i][j] = {x:0, y:0, status:1};
+        bricks[i][j] = {
+            x:0, 
+            y:0, 
+            present:'yes'};
     }
 }
+
+let counter = 0
+
 console.log(bricks)
 
 
@@ -72,14 +78,20 @@ function keyDownHandler(event) {
   }
 
   function detectCollision(){
+    
     for(let i = 0; i<brickColumns; i++){
         for(let j = 0; j<brickRows; j++){
             let singleBrick = bricks[i][j];
-            if(singleBrick.status === 1){
+            if(singleBrick.present === 'yes'){
             if(ballPositionX  > singleBrick.x && ballPositionX  < singleBrick.x + brickWidth && ballPositionY > singleBrick.y && ballPositionY < singleBrick.y + brickHeight){
                 directionY = -directionY
-            singleBrick.status = 0;}
+            singleBrick.present = 'no';
+            counter++;
+                }
+                
+            scoreChart.innerText =`your score is ${counter}`
             }
+            
         }
     
     }
@@ -98,7 +110,7 @@ function drawBall() {
   function drawBricks() {
     for(let i=0; i<brickColumns; i++){
         for(let j=0; j<brickRows; j++){
-            if(bricks[i][j].status ===1){
+            if(bricks[i][j].present ==='yes'){
                 let brickX = (i * (brickWidth + brickPadding)) + brickLeftMargin
                 let brickY = (j * (brickHeight + brickPadding));
                 bricks[i][j].x = brickX;
