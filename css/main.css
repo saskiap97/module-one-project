@@ -1,20 +1,40 @@
+@font-face {
+    font-family: wonderbar;
+    src: url(../fonts/Wonderbar-pALD.ttf);
+}
+
+body {
+    background-color:  #1f1e29;
+}
+
+
 #container-div{
     color:beige;
-    height: 100%;
+    margin: 10%;
     display: flex;
     justify-content: center;
     align-content: center;
+    align-items: center;
+
 }
 
 #myCanvas{
-    background-color: rgb(234, 214, 188);
+    background-image: url('../images/starry-sky.avif')
 
 }
 
+
 #score-chart{
-    color: darkblue;
+    color: white;
+    font-size: 30px;
+    padding: 50px;
+    margin: 10px;
+    text-align: center;
 }
 
 p{
-    color: darkblue;
+    color: white;
+    font-family: wonderbar;
+
 }
+
