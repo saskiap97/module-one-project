@@ -1,10 +1,6 @@
 const canvas = document.getElementById('myCanvas');
 const paint = canvas.getContext('2d');
 
-let background = new Image();
-background.src = "../images/paper-background.jpeg";
-paint.drawImage(background,0,0)
-
 const scoreChart = document.getElementById('score-chart')
 
 var randomColor = Math.floor(Math.random()*16777215).toString(16)
@@ -58,11 +54,8 @@ for (let i = 0; i < brickColumns; i++){
 
 let counter = 0
 
-let images = {
-    background: new Image()
-}
 
-images.background.src = '../images/paper-background.jpeg'
+
 
 
 document.addEventListener("keydown", keyDownHandler);
@@ -154,7 +147,6 @@ function drawBall() {
  
 
   function gamePlay() {
-    paint.drawImage(images.background,0,0,canvas.width, canvas.height)
     paint.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle();
