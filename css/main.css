@@ -3,23 +3,25 @@
     src: url(../fonts/Wonderbar-pALD.ttf);
 }
 
-body {
-    background-color:  #1f1e29;
+#gamebody {
+    background-image: url("../images/gameover-sky.jpeg");
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
 }
 
 
 #container-div{
-    color:beige;
-    margin: 10%;
+    width: 50%;
     display: flex;
     justify-content: center;
-    align-content: center;
-    align-items: center;
-
+    flex-direction: column;
 }
 
 #myCanvas{
-    background-image: url('../images/starry-sky.avif')
+    background-image: url('../images/starry-sky.avif');
+    border: 1px solid lightslategray
 
 }
 
@@ -27,7 +29,7 @@ body {
 #score-chart{
     color: white;
     font-size: 30px;
-    padding: 50px;
+    padding: 20px;
     margin: 10px;
     text-align: center;
 }
@@ -38,3 +40,42 @@ p{
 
 }
 
+
+/* below code is for losing page */ 
+
+#loser {
+    text-align: center;
+    color: cornsilk;
+    font-family: wonderbar;
+    font-size: 90px;
+}
+
+#loser-div{
+    text-align: center;
+}
+
+#loser-link{
+    color: orange;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#loser-button{
+    border-color: red;
+    margin: 20px;
+    font-size: 15px;
+    width: 15%;
+    height: 40px;
+}
+
+#loser-button:focus {
+    outline-color: transparent;
+    outline-style:solid;
+    box-shadow: 0 0 0 4px #5a01a7;
+    transition: 0.7s;
+}
+
+
+#loser-body{
+    background-image: url("../images/gameover-sky.jpeg");
+}

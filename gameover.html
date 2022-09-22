@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
     <title>Document</title>
 </head>
-<body>
-    <h1> you lose</h1>
-    <a href="index.html"> Ready to play again? </a>
+<body id="loser-body">
+    <div id="loser-div">
+    <h1 id="loser"> YOU LOSE </h1>
+    <div></div>
+    <form action="./index.html" method="get">
+    <button type="submit" id="loser-button"> Play Again </button>
+    </form>
+    <audio autoplay>
+        <source src="./sounds/game-over.mp3" type="audio/mpeg">
+    </div>
+      </audio>
+
+      </div>
 </body>
 </html>
