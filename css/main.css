@@ -21,7 +21,8 @@
 
 #myCanvas{
     background-image: url('../images/starry-sky.avif');
-    border: 1px solid lightslategray
+    border: 1px solid lightslategray;
+    box-shadow: 0 0 10px #9ecaed;
 
 }
 
