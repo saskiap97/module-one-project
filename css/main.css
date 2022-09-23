@@ -55,7 +55,7 @@ p{
 
 /* below code is for losing page */ 
 
-#loser {
+#loser, #winner{
     text-align: center;
     color: cornsilk;
     font-family: wonderbar;
@@ -90,4 +90,13 @@ p{
 
 #loser-body{
     background-image: url("../images/gameover-sky.jpeg");
+}
+
+#yay{
+    display: flex;
+    flex-direction: column;
+}
+
+#winner {
+    text-align: center;
 }
