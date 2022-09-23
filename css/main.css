@@ -10,7 +10,18 @@
     justify-content: center;
     align-content: flex-start;
 }
-
+#begin {
+    font: bold 20px wonderbar;
+    text-decoration: none;
+    text-align: center;
+    background-color: #EEEEEE;
+    color: #333333;
+    border: 1px solid lightslategray;
+    box-shadow: 0 0 10px #9ecaed;
+    margin-top: 20px;
+    padding: 10px;
+    width: auto;
+  }
 
 #container-div{
     width: 50%;

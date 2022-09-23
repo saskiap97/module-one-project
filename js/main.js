@@ -2,8 +2,17 @@ const canvas = document.getElementById('myCanvas');
 const paint = canvas.getContext('2d');
 
 const scoreChart = document.getElementById('score-chart')
+const containerDiv = document.getElementById('container-div')
+const levelTrack = document.getElementById('level-track')
 
-var randomColor = Math.floor(Math.random()*16777215).toString(16)
+const beginButton = document.getElementById('begin')
+beginButton.addEventListener("click", actualGamePlay)
+beginButton.addEventListener("click", () => {beginButton.style.display='none'})
+
+function removeButton(beginButton){
+containerDiv.removeChild.beginButton
+}
+
 
 //define a location for the ball
 let ballPositionX = canvas.width / 2;
@@ -52,7 +61,9 @@ for (let i = 0; i < brickColumns; i++){
     }
 }
 
+
 let counter = 0
+let level = 1
 
 
 
@@ -60,6 +71,14 @@ let counter = 0
 
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
+
+function resetBall ()
+{ballPositionX = canvas.width/2;
+ballPositionY = canvas.height-40;
+directionX = -directionX;
+directionY = -directionY;
+}
+
 
 function drawPaddle() {
     paint.beginPath();
@@ -85,7 +104,6 @@ function keyDownHandler(event) {
     }
   }
 
-
   function detectCollision(){
     
     for(let i = 0; i<brickColumns; i++){
@@ -93,17 +111,17 @@ function keyDownHandler(event) {
             let singleBrick = bricks[i][j];
             if(singleBrick.present === 'yes'){
             if(ballPositionX  > singleBrick.x && ballPositionX  < singleBrick.x + brickWidth && ballPositionY > singleBrick.y && ballPositionY < singleBrick.y + brickHeight){
-                directionY = -directionY
+                directionY = -directionY;
             singleBrick.present = 'no';
             counter+=10;
-            if(counter > (brickRows * brickColumns)*10){
-
-                location.href = "youwin.html"
+            if(counter > (brickRows*brickColumns * 10)){
+                level++
             }
             
                 }
                 
             scoreChart.innerText =`Your score is ${counter} `
+            levelTrack.innerText =`Your level is ${level} `
             }
             
         }
@@ -138,6 +156,11 @@ function drawBall() {
         }
 
     }
+  }
+
+
+  function levelUp(){
+ level+=1
   }
   
   
@@ -192,5 +215,8 @@ function drawBall() {
     ballPositionY += directionY;
 }
 
-const interval = setInterval(gamePlay, 10);
+//const interval = setInterval(gamePlay, 10);
 
+function actualGamePlay(){
+    setInterval(gamePlay,10)
+}
